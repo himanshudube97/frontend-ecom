@@ -5,18 +5,20 @@ import Product from "./ProudctCard";
 import { getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 
-const product = {
-  name: "blue shirt",
-  price: "2000",
-  _id: "himanshu",
-};
+// const product = {
+//   name: "blue shirt",
+//   price: "2000",
+//   _id: "himanshu",
+// };
 
 const Home = () => {
   const dispatch = useDispatch();
+  const { loading, product, productsCount } = useSelector((state) => {
+    return state.products;
+  });
 
   useEffect(() => {
-    console.log("hello");
-    dispatch(getProduct);
+    dispatch(getProduct());
   }, [dispatch]);
 
   return (
@@ -30,13 +32,9 @@ const Home = () => {
       </div>
       <h2 className="homeHeading">Featured Products</h2>
       <div className="container" id="container">
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
+        {product.map((item) => {
+          return <Product product={item} />;
+        })}
       </div>
     </Fragment>
   );

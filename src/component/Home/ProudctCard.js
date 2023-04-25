@@ -16,6 +16,7 @@ const options = {
 const Product = ({ product }) => {   //yahan basically humne props ko destructure kiya hai.
   return <>
     <Link className="productCard" to={product._id} >
+        <h1>{product.name}</h1>
         <img src="https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/h/a/s/3xl-fo-shrt-499-skyblu-5th-anfold-original-imafkhhrgtwyheda-bb.jpeg?q=70" />
         <p>{product.name}</p>
         <div>

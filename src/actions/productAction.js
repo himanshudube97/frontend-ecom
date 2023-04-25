@@ -8,18 +8,17 @@ import {
 import axios from "axios";
 let baseUrl = "http://localhost:8000";
 
-export const getProduct = async (dispatch) => {
+export const getProduct = () => async (dispatch) => {
+  //this dispatch parameter is here provided by "react-thunk" and this async function is a thunk function.
   try {
     dispatch({ type: ALL_PRODUCT_REQUEST });
-    console.log("helo")
-    const { data } = await axios.get(baseUrl+"/api/v1/allProducts");
+    const { data } = await axios.get(baseUrl + "/api/v1/allProducts");
     console.log(data, "data");
     dispatch({
-        type: ALL_PRODUCT_SUCCESS,
-        payload: data
-    })
+      type: ALL_PRODUCT_SUCCESS,
+      payload: data,
+    });
   } catch (error) {
-    console.log("bro")
     dispatch({
       type: ALL_PRODUCT_FAIL,
       payload: error.response.data.message,
@@ -30,5 +29,5 @@ export const getProduct = async (dispatch) => {
 //CLEARING ERRORS
 
 export const clearErrors = () => async (dispatch) => {
-    dispatch({ type: CLEAR_ERRORS });
-    };
+  dispatch({ type: CLEAR_ERRORS });
+};
