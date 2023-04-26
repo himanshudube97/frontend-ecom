@@ -1,10 +1,11 @@
 import {legacy_createStore as createStore, combineReducers, applyMiddleware} from "redux";
 import  thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { productReducer } from "./reducers/productReducer";
+import { productDetailsReducer, productReducer } from "./reducers/productReducer";
 
 const reducer = combineReducers({
-    products: productReducer
+    products: productReducer,
+    productDetails: productDetailsReducer
 });
 
 let initialState = {};
@@ -12,6 +13,6 @@ let initialState = {};
 const middleware = [thunk];
 
 const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));
-
+console.log("store ka number")
 export default store;
 
