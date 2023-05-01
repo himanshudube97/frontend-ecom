@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Footer from "./component/layout/Footer/Footer";
 import Home from "./component/Home/Home.js";
 import ProductDetails from "./component/Product/ProductDetails";
+import Products from "./component/Product/Products";
 
 function App() {
   useEffect(() => {
@@ -22,8 +23,9 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route exact path="/" Component={Home} />
+          <Route  exact path="/" Component={Home} />
           <Route path="/product/:id" Component={ProductDetails} />
+          <Route path="/products" Component={Products} />
         </Routes>
         <Footer />
       </Router>

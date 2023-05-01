@@ -13,7 +13,7 @@ const options = {
   isHalf: true,
 };
 
-const Product = ({ product }) => {   //yahan basically humne props ko destructure kiya hai.
+const ProductCard = ({ product }) => {   //yahan basically humne props ko destructure kiya hai.
   return <>
     <Link className="productCard" to={`/product/${product._id}`} >
         <h1>{product.name}</h1>
@@ -28,4 +28,4 @@ const Product = ({ product }) => {   //yahan basically humne props ko destructur
   </>;
 };
 
-export default Product;
+export default ProductCard;

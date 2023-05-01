@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import "./Home.css";
 // import { CgMouse } from "react-icons/all";
-import Product from "./ProudctCard";
+import ProductCard from "./ProductCard";
 import { getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loaders/Loader";
@@ -44,7 +44,7 @@ const Home = () => {
           <h2 className="homeHeading">Featured Products</h2>
           <div className="container" id="container">
             {product?.map((item) => {
-              return <Product product={item} />;
+              return <ProductCard product={item} />;
             })}
           </div>
         </Fragment>
